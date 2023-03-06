@@ -31,6 +31,8 @@ def deriv(f,x,h,points):
         return (f(x+h)-f(x-h))/(2.0*h)
     elif points==5:
         return (f(x-2.0*h)+8.0*f(x-h)+8.0*f(x+h)-f(x+2.0*h))/(12.0*h)
+        
+
     else:
         print("ERROR: deriv() cannot handle this many points:", points, flush=True)
         exit()
@@ -133,7 +135,6 @@ def trapezoid(f,start,end,epsilon=1.0e-6,itmax=100,debug=False):
     else:
         return new_integrand, this_iter
 
-
 def main():
 
     print("\nStarting our calculation.  Yay!\n")
@@ -151,12 +152,7 @@ def main():
     print("\nIntegral from 0 to ", root, "is", integrand, ", which took",
               integral_iters, "iterations.\n")
 
-def test1():
-    root, root_iters = secant(fofx,guess = -2,points=5,debug=False,itmax=20)
-    result = root
-    assert result >=100
-
 # execute main() if this is being run as a script!
 if __name__ == "__main__":
     main()
-
+    
